@@ -130,16 +130,25 @@ class Kerusakan extends CI_Controller
         // } else {
         //   echo $this->upload->dispay_errors();
         // }
-
         $this->kerusakan->ubahkerusakan();
         $this->session->set_flashdata('pesan', '<div class="alert alert- alert-info   fade show" role="alert">
         <strong>Data Kerusakan Berhasil Diubah</strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>'); //buat pesan akun berhasil dibuat
+        </div>'); //buat pesan akun berhasil dibuat
         redirect('kerusakan');
       }
+    } else {
+      // jika tidak ada gambar
+      $this->kerusakan->ubahkerusakan();
+      $this->session->set_flashdata('pesan', '<div class="alert alert- alert-info   fade show" role="alert">
+        <strong>Data Kerusakan Berhasil Diubah</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>'); //buat pesan akun berhasil dibuat
+      redirect('kerusakan');
     }
   }
 

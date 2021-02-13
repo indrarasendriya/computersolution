@@ -34,15 +34,7 @@ class Member extends CI_Controller
       'gejala',
       'required',
       [
-        'required' => 'Gejala Kerusakan Wajib Diisi'
-      ]
-    );
-    $this->$this->form_validation->set_rules(
-      'id_gejala[]',
-      'gejala',
-      'required',
-      [
-        'required' => 'Gejala Kerusakan Tidak Boleh Semuanya Diisi'
+        'required' => '<center>Silahkan pilih gejala kerusakan komputer yang disediakan</center>'
       ]
     );
 
@@ -65,7 +57,23 @@ class Member extends CI_Controller
   {
     $this->DM->kosongTmpGejala();
     $this->DM->kosongTmpFinal();
-    $this->DM->insertTmpGejala();
+
+    $gejala = $this->input->post('id_gejala');
+    $jml_gejala = count($gejala);
+
+    // validasi jumlah inputan gejala
+
+    if ($jml_gejala > 5) {
+      $this->session->set_flashdata('pesan', '<div class="alert alert- alert-danger fade show" style="text-align: center;" role="alert">
+    <strong>Silahkan untuk memilih maksimal 5 gejala kerusakan komputer yang dialami.</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>'); //buat pesan akun berhasil dibuat
+      redirect('Member/diagnosa');
+    } else {
+      $this->DM->insertTmpGejala($gejala);
+    }
 
     $tmpGejala = $this->DM->insertTmpFinal();
 

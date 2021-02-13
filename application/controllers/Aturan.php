@@ -53,7 +53,12 @@ class Aturan extends CI_Controller
     ])->row_array();
 
     $this->MP->tambahAturan();
-    $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade in" role="alert">Data Aturan Berhasil Ditambahkan!</div>'); //buat pesan akun berhasil dibuat
+    $this->session->set_flashdata('pesan', '<div class="alert alert- alert-success   fade show" role="alert">
+    <strong>Data Aturan Berhasil Ditambah</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>'); //buat pesan akun berhasil dibuat
     redirect('aturan');
   }
 
@@ -62,7 +67,12 @@ class Aturan extends CI_Controller
   {
     $this->MP->ubahAturan($id);
     //buat pesan Pengetahuan berhasil dibuat
-    $this->session->set_flashdata('pesan', '<div class="alert alert-info" role="alert">Data Aturan Berhasil Diubah!</div>');
+    $this->session->set_flashdata('pesan', '<div class="alert alert- alert-success   fade show" role="alert">
+    <strong>Data Kerusakan Berhasil Diubah</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>');
     redirect('aturan');
   }
 

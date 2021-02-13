@@ -146,42 +146,41 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <?= form_open_multipart('kerusakan/tambah'); ?>
+                <?= form_open_multipart('kerusakan/ubahkerusakan'); ?>
                 <div class="modal-body">
-                  <form action="<?= base_url('kerusakan/ubah/' . $uk['id_kerusakan']); ?>" method="post">
-                    <!-- <input type="hidden" name="id" id="id"> -->
+                  <input type="hidden" name="id" value="<?= $uk['id_kerusakan']; ?>">
+                  <div class="form-group">
+                    <label for="kode">Kode Kerusakan</label>
+                    <input type="text" class="form-control" id="kode" name="kode" value="<?= $uk['kode_kerusakan']; ?>" readonly>
+                  </div>
+                  <div class="form-group">
                     <div class="form-group">
-                      <label for="kode">Kode Kerusakan</label>
-                      <input type="text" class="form-control" id="kode" name="kode" value="<?= $uk['kode_kerusakan']; ?>" readonly>
+                      <label for="nama">Nama Kerusakan</label>
+                      <input type="text" class="form-control" id="nama" name="nama" value="<?= $uk['nama_kerusakan']; ?>">
                     </div>
+                  </div>
+                  <div class="form-group">
                     <div class="form-group">
-                      <div class="form-group">
-                        <label for="nama">Nama Kerusakan</label>
-                        <input type="text" class="form-control" id="nama" name="nama" value="<?= $uk['nama_kerusakan']; ?>">
-                      </div>
+                      <label for="nama">Solusi Kerusakan</label>
+                      <input type="text" class="form-control" id="nama" name="solusi" value="<?= $uk['solusi']; ?>">
                     </div>
+                  </div>
+                  <div class="form-group">
                     <div class="form-group">
-                      <div class="form-group">
-                        <label for="nama">Solusi Kerusakan</label>
-                        <input type="text" class="form-control" id="nama" name="nama" value="<?= $uk['solusi']; ?>">
-                      </div>
+                      <label for="nama">Probabilitas</label>
+                      <input type="text" class="form-control" id="nama" name="probabilitas" value="<?= $uk['probabilitas_kerusakan']; ?>">
                     </div>
+                  </div>
+                  <div class="form-group">
                     <div class="form-group">
-                      <div class="form-group">
-                        <label for="nama">Probabilitas</label>
-                        <input type="text" class="form-control" id="nama" name="nama" value="<?= $uk['probabilitas_kerusakan']; ?>">
-                      </div>
+                      <label for="nama">Gambar</label>
+                      <input type="file" class="form-control" id="gambar" name="gambar" placeholder="Gambar Hardware">
                     </div>
-                    <div class="form-group">
-                      <div class="form-group">
-                        <label for="nama">Gambar</label>
-                        <input type="file" class="form-control" id="gambar" name="gambar" placeholder="Gambar Hardware">
-                      </div>
-                    </div>
-                    <div class=" modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                      <button type="submit" class="btn btn-primary">Simpan</button>
-                    </div>
+                  </div>
+                  <div class=" modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                  </div>
                   </form>
                 </div>
               </div>

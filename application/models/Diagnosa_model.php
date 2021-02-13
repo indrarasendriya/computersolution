@@ -14,10 +14,19 @@ class Diagnosa_model extends CI_model
   }
 
   // memasukkan gejala terpilih ke tabel tmp_gejala
-  public function insertTmpGejala()
+  public function insertTmpGejala($gejala)
   {
-    $gejala = $this->input->post('id_gejala');
+    // $gejala = $this->input->post('id_gejala');
+    // $jml_gejala = count($gejala);
+
+    // // validasi jumlah inputan gejala
+
+    // if ($jml_gejala > ) {
+    //   # code...
+    // }
     // check($gejala);
+    // die;
+
     $membernya = $this->db->get_where('tbl_user', [
       'username' => $this->session->userdata('username')
     ])->row_array();

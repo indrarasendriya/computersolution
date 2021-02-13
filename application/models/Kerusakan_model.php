@@ -32,13 +32,15 @@ class Kerusakan_model extends CI_model
   public function ubahkerusakan()
   {
     $id = $this->input->post('id');
+
     // Mengubah data gejala
     $data = [
       "kode_kerusakan" => $this->input->post('kode', true),
       "nama_kerusakan" => $this->input->post('nama', true),
-      "probabilitas" => $this->input->post('probabilitas', true),
+      "probabilitas_kerusakan" => $this->input->post('probabilitas', true),
       "solusi" => $this->input->post('solusi', true)
     ];
+    // check($data);
     $this->db->where('id_kerusakan', $id);
     $this->db->update('tbl_kerusakan', $data);
   }
